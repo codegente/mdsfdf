@@ -1429,7 +1429,7 @@ margin: 0;
 
 /* When the checkbox is checked, add a blue background */
 .custom_check input:checked ~ .checkmark {
-    background-color: #2196F3;border:1px solid #2196F3;
+   /* background-color: #2196F3;border:1px solid #2196F3;*/
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */

@@ -56,6 +56,27 @@
 				    <label for="pwd"  class="foor_size">Mobile No.:</label>
 				    <input type="text" class="form-control bordr-mov" id="mo" name="number" value="">
 				  </div>
+				  
+				  <div class="form-group">
+                 <label for="usr"  class="foor_size">City</label>
+                 <select class="form-control bordr-mov" name="ctt" id="cit">
+                       <option>select city</option>
+                       
+                   </select>
+                
+                     </div>
+                     
+          <div class="form-group">
+
+                     <label for="usr"  class="foor_size">Area</label>
+                
+                   <select class="form-control bordr-mov" name="arre" id="are">
+                       
+                   </select>
+                 
+
+                     </div>
+				  
 				  <div class="form-group">
 				    <label for="email"  class="foor_size">Address:</label>
 				    <input type="text" class="form-control bordr-mov" id="ad" name="address" value="">
@@ -102,13 +123,88 @@ document.getElementById("pp").value=pid;
 			                      success: function(data)
 			                  {  
                                                
-                                                  var mobil=data.split("#")[0];
-                                                  var addr=data.split("#")[1];
-                                                document.getElementById("ad").value=addr;
-                                                 document.getElementById("mo").value=mobil;
+                                                  var mobiladd=data.split("#")[0];
+                                                  var areacity=data.split("#")[1];
+                                                  
+                                                  var mobile=mobiladd.split(",")[0];
+                                                  var address=mobiladd.split(",")[1];
+                                                  
+                                                 
+                                                  
+                                                document.getElementById("ad").value=address;
+                                                 document.getElementById("mo").value=mobile;
+                                                 
+                                                 
                               
-				               }
+                     
+				               
+			                      
+			                  }
 			                 });
+			                 
+			                 
+			                  $.ajax({  
+			                       type:"POST",   
+			                      url: "http://codegente.com/aapp/areaselect.php",
+			                     data:"", 
+			                      success: function(data)
+			                  {  
+                                      
+                                                var city=data.split("#")[0];
+                                                  var area=data.split("#")[1];
+                                     
+                                       $("#cit").empty();  
+                                       $("#cit").append(city); 
+                                       $("#are").append(area);
+			                      
+			                  }
+			                 });
+			                 
+			                 
+			                  $(document).ready(function(){ 
+    $.ajax({ 
+			type:"POST",   
+			url: "http://codegente.com/aapp/city.php" ,
+			data:"", 
+			success: function(data)
+			{     
+				        
+				                  $("#cit").append(data);                   
+                                                      
+	
+				}
+			});
+			
+			
+			 
+			
+			
+});
+
+			                 
+			                 	$('#cit').change(function(){
+		    
+		   var aa = $('#cit :selected').text();
+		    
+		                  $.ajax({ 
+			type:"POST",   
+			url: "http://codegente.com/aapp/area.php?city="+aa ,
+			data:"", 
+			success: function(data)
+			{     
+				        
+				                  $("#are").append(data);                   
+                                                      
+	
+				}
+			});
+			
+				  
+		           }); 
+			                 
+			                 
+			                 
+			                 
         
 
 

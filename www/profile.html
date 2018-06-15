@@ -74,9 +74,16 @@
 
                   <div class="form-group">
 
-                     <label for="usr"  class="sa">Password</label>
+                     <label for="usr"  class="sa">Old Password</label>
 
-                   <input type="text" id="pass"  class="one" value="">
+                   <input type="password" id="pass"  class="one" value="">
+
+                     </div>
+                      <div class="form-group">
+
+                     <label for="usr"  class="sa">New Password</label>
+
+                   <input type="password" id="newpass"  class="one" value="">
 
                      </div>
                       <div class="form-group">
@@ -127,30 +134,33 @@ $.ajax({
                                  var passw=data.split(",")[1]; 
                              
                            document.getElementById('ema').value=emaa;
-                               document.getElementById('pass').value=passw;
+                               //document.getElementById('pass').value=passw;
         }
                                
 			});
 
 
 
-      $("#update").click(function(){  
+      $("#oo").click(function(){  
 var email = $("#ema").val(); 
 var password = $("#pass").val(); 
-   
+ var newpassword = $("#newpass").val();   
   
 
        $.ajax({ 
 			type:"POST",   
-			url: "http://codegente.com/aapp/profileupdate.php?email="+email+"&password="+password ,
+			url: "http://codegente.com/aapp/changepassword.php?email="+email+"&password="+password+"&new="+newpassword ,
 			data:"", 
 			success: function(data)
-			{     
-				
-				
-				                   window.location.href="login.html";                   
+			{   
+			    var dd=data;
+			    var ff=data;
+			   
+			           if( dd == ff ){ alert("old password does not match"); }
+			           else{ 
+				              window.location.href="login.html";             
                                                       
-	
+			           }
 				}
 			});
 

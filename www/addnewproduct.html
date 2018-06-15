@@ -136,7 +136,7 @@
 	</div>
 	<div class="hr_border"></div>
 	
-	<div class="subscrive_detailin">
+ 	<div class="subscrive_detailin">
 			<div class="subscrive_detailleft">
 				<h4>Recharge/Top up</h4>
                                 <input type="hidden" name="ho" id="ho" value="30">
@@ -164,7 +164,7 @@
 	</div>
 	<div class="hr_border"></div>
 	
-	<div class="subscrive_detailin">
+<!--	<div class="subscrive_detailin">
 			<div class="subscrive_detailleft">
 				<h4>Door bell</h4>
 				<h5><input type="checkbox" value="no" name="yes"> Don't ring</h5>
@@ -174,9 +174,9 @@
 				<a href="#"><span class="glyphicon glyphicon-bell"></span></a>
 			</div>
 				
-	</div>
+	</div> 
 		
-<div class="hr_border"></div>
+<div class="hr_border"></div>-->
 </div>
 	
 <div >
@@ -261,28 +261,28 @@
               <div class="repeat_sec_left">
 <label class="custom_check">
   <input type="checkbox" checked="checked">
-  <span class="checkmark" value="every_day" name="every" id="every">Every Day</span>
+  <span class="checkmark one" value="every_day" name="every" id="every">Every Day</span>
 </label>
 <label class="custom_check">
   <input type="checkbox">
-  <span class="checkmark">Week Days</span>
+  <span class="checkmark two" id="week">Week Days</span>
 </label>
 <label class="custom_check">
   <input type="checkbox">
-  <span class="checkmark">Week Ends</span>
+  <span class="checkmark three" id="wend">Week Ends</span>
 </label>
 </div>
 
 
 <div class="repeat_sec_right">
   <div class="check_day">
-          <span><input type="checkbox" value="Mon" name="days"> Mon</span>
-          <span><input type="checkbox" value="Tue" name="days"> Tue</span>
-          <span><input type="checkbox" value="Wed" name="days"> Wed</span>
-          <span><input type="checkbox" value="Thu" name="days"> Thu</span>
-          <span><input type="checkbox" value="Fri" name="days"> Fri</span>
-          <span><input type="checkbox" value="Sat" name="days"> Sat</span>
-          <span><input type="checkbox" value="Sun" name="days"> Sun</span>
+          <span><input type="checkbox" class="ch oo" value="Mon" name="days"> Mon</span>
+          <span><input type="checkbox" class="ch oo" value="Tue" name="days"> Tue</span>
+          <span><input type="checkbox" class="ch oo" value="Wed" name="days"> Wed</span>
+          <span><input type="checkbox" class="ch oo" value="Thu" name="days"> Thu</span>
+          <span><input type="checkbox" class="ch oo" value="Fri" name="days"> Fri</span>
+          <span><input type="checkbox" class="ch ew" value="Sat" name="days"> Sat</span>
+          <span><input type="checkbox" class="ch ew" value="Sun" name="days"> Sun</span>
         </div>
 </div>
 
@@ -497,7 +497,65 @@ var pid=url.split("=")[1];
                         
                         
                  });
+                 
+                 
+                   $("#every").click(function () {
+        
+            $('.ch').each(function(){
+                
+                this.checked = true;
+           
+    });
+                 
+});
 
+ 
+                   $("#week").click(function () {
+        
+            $('.oo').each(function(){
+                
+                this.checked = true;
+          
+    });
+    
+      $('.ew').each(function(){
+                
+                this.checked = false;
+          
+    });
+    
+    
+});
+      
+                   $("#wend").click(function () {
+        
+            $('.ew').each(function(){
+                
+                this.checked = true;
+           
+    });
+    
+     $('.oo').each(function(){
+                
+                this.checked = false;
+          
+    });
+    
+    
+});
+       
+       $("#one").click(function () { alert();
+            $("#two").css("background", "none");
+            $("#two").css("border", "1px solid #ccc");    
+    
+               $("#three").css("background", "none");
+            $("#three").css("border", "1px solid #ccc"); 
+    
+});
+       
+       
+       
+       
                  
 }else{
             // window.location="login.html";

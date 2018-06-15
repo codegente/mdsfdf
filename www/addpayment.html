@@ -167,9 +167,23 @@ var or=urll.split("=")[1];
 //alert(orderid);
 // window.location.href="ifm.html?orderid="+orderid;
 
-var pyt= $('#typ :selected').text();
+var pyt= $('#pyr').val();
 
 window.location.href="success.html?orderid="+or+"&type%"+pyt;
+
+}
+
+function myFunction1() { 
+
+    
+  urll=document.URL;
+var or=urll.split("=")[1];
+//alert(orderid);
+// window.location.href="ifm.html?orderid="+orderid;
+
+var pyt= $('#pyo').val();
+
+window.location.href="postpaid.html?orderid="+or+"&type%"+pyt;
 
 }
 
