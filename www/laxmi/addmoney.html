@@ -59,37 +59,41 @@
 
   <div class="about_sec">
 	<img src="img/logo.png" class="logoo">
-	<h5 class="heading"  style="margin-top: 40px;"> <b>YOUR TRASACTIONS HISTORY</b></h5>
-	
-	
-	
-                  
-        </div>
-        
-        
-<div class="">          
-  <table class="table">
-    <thead>
-     <tr>
-        <th>TRASACTIONS ID</th>
-        <th>DATE</th>
-        <th>PRODUCT PRICE</th>
-         <th>PRODUCT NAME</th>
-         <th>STATUS</th> 
-      </tr>
-    </thead>
-    <tbody id="view">
-      
-    </tbody>
-  </table>
-  </div>		
-           
+	<div class="col-sm-12">
+	<div class="row">
+	<div class="col-sm-4"></div>
+	<div class="col-sm-4">
+	 <input type="text" class="form-control" id="addm" style="margin-top:50px;">
+	</div>
+	<div class="col-sm-4"></div>
+	</div>
+	</div>		
+      <div class="registerform1" style="text-align: center;margin-top: 10px;">
+		  
 
-<div id="footer" class="footer"  style="margin-top: 60px;position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;">
+                      <div class="form-group">
+                      <button type="submit" class="btn button2" id="oo" style="margin-top: 20px;">ADD MONEY</button>
+		     </div>
+		     
+		     
+                       
+		</div>
+                  
+                  
+
+                  
+
+		
+                       
+		</div>
+		
+<div id="footer" class="footer"  style="margin-top: 60px; position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   
+  
+   text-align: center; ">
 	<!--
 	-->
 	
@@ -121,40 +125,53 @@
 	</body></html>
 
 <script>
-$( document ).ready(function() {
 
 $.ajax({
     url: 'http://codegente.com/aapp/session.php',
     type: 'POST',
     success: function(result) {
         if (result == 'success'){   
+     
+          url=document.URL;
       
+
                               
+
+
+      $("#oo").click(function(){  
+var am= $("#addm").val(); 
+
+   
+  
+
        $.ajax({ 
 			type:"POST",   
-			url: "http://codegente.com/aapp/history.php",
+			url: "http://codegente.com/aapp/addmoneyjs.php?money="+am ,
 			data:"", 
 			success: function(data)
-			{   
-				   var dd=data;
-				   
-                              $("#view").append(dd);
+			{     
+				  var cc=data;
 				
-				                                    
-                                                  
+				             window.location.href="addiframe.html?code="+cc;                   
+                                                      
 	
 				}
 			});
 
-           
+});
+
+        
+
       
+      
+
   }else{
            //  window.location="login.html";
         }
     }
 });
  
-});
+
 </script>
 
 

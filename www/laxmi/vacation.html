@@ -59,58 +59,106 @@
 
   <div class="about_sec">
 	<img src="img/logo.png" class="logoo">
-	<h5 class="heading">.</h5>
+	<h5 class="heading">Going on a weekend trip or out of townfor a few days.No warries.Simply create a vacation to suspend all deliveries for the set dates.</h5>
 	
 	
 			
       <div class="registerform1" style="text-align: center;margin-top: 30px;">
 						<div class="form-group">
 
-                     <label for="usr"  class="sa" style="
-    text-align:  center;
-">Wait For Activatipon Your Order</label>
+                     <label for="usr"  class="sa">Start Date</label>
 
-                  <img src="img/suc.jpg" class="logoo">
+                   <input type="date" id="sdate"  class="one" value="">
+
                      </div>
-        
+
+                  <div class="form-group">
+
+                     <label for="usr"  class="sa">End Date</label>
+
+                   <input type="date" id="edate"  class="one" value="">
+
+                     </div>
+                      <div class="form-group">
+                      <button type="submit" class="btn button2" id="oo">Update</button>
+		  </div>
+                      
+                       <div class="form-group" style="margin-top: 10px;">
+                      <button type="submit" class="btn button2" id="hoh" style="padding: 0px 10px 0px 15px;">VIEW VACATION</button>
+		     </div> 
+		</div>
+                  
+                  
+
+                  
+
+		
+                       
 		</div>
 		
 
-	</body>
-	</html>
+
+
+
+
+	
+	  
+	
+	</body></html>
 
 <script>
 
-$(document).ready(function () { 
+$.ajax({
+    url: 'http://codegente.com/aapp/session.php',
+    type: 'POST',
+    success: function(result) {
+        if (result == 'success'){   
+     
+          url=document.URL;
+      
+
+                              
 
 
-url=document.URL;
+      $("#oo").click(function(){  
+var start = $("#sdate").val(); 
+var end = $("#edate").val(); 
+   
+  
 
-var order=url.split("=")[1];
-var type=url.split("%")[1];
-
-
-               $.ajax({ 
+       $.ajax({ 
 			type:"POST",   
-			url: "http://codegente.com/aapp/walletjs.php?orderid="+order+"&type="+type,
+			url: "http://codegente.com/aapp/vacationjs.php?start="+start+"&end="+end ,
 			data:"", 
 			success: function(data)
-			{   
-                             
-                              
+			{     
+				   alert('Vacation Dates Successfuly Update');
+				
+				                 // window.location.href="searchproducts.html";                   
+                                                      
+	
 				}
-
-                             
 			});
 
-   window.setTimeout(function(){
-
-        
-        window.location.href = "index.html";
-
-    }, 3000);
 });
 
+        
+
+              
+$("#hoh").click(function(){  
+
+ 	 			
+				                  window.location.href="vacationlist.html";                   
+
+});
+      
+
+  }else{
+           //  window.location="login.html";
+        }
+    }
+});
+ 
 
 </script>
 

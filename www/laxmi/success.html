@@ -68,7 +68,7 @@
 
                      <label for="usr"  class="sa" style="
     text-align:  center;
-">Wait For Activatipon Your Order</label>
+">Success Your Order</label>
 
                   <img src="img/suc.jpg" class="logoo">
                      </div>
@@ -92,7 +92,7 @@ var type=url.split("%")[1];
 
                $.ajax({ 
 			type:"POST",   
-			url: "http://codegente.com/aapp/walletjs.php?orderid="+order+"&type="+type,
+			url: "http://codegente.com/aapp/final.php?orderid="+order+"&type="+type,
 			data:"", 
 			success: function(data)
 			{   

@@ -59,58 +59,99 @@
 
   <div class="about_sec">
 	<img src="img/logo.png" class="logoo">
-	<h5 class="heading">.</h5>
+	<h5 class="heading"  style="margin-top: 40px;"> <b>YOUR TRASACTIONS HISTORY</b></h5>
 	
 	
 			
-      <div class="registerform1" style="text-align: center;margin-top: 30px;">
-						<div class="form-group">
+      <div class="registerform1" style="text-align: center;margin-top: 10px;">
+		  
 
-                     <label for="usr"  class="sa" style="
-    text-align:  center;
-">Wait For Activatipon Your Order</label>
-
-                  <img src="img/suc.jpg" class="logoo">
-                     </div>
-        
+                       
 		</div>
+                  
+        </div>
 		
+           
+  <table class="table table-bordered">
+    <thead>
+      <tr> 
+        <th>DATE</th>
+        <th>FROM DATE</th>
+         <th>TO DATE</th>
+         
+      </tr>
+    </thead>
+    <tbody id="view">
+     
+     
+    </tbody>
+  </table>
 
-	</body>
-	</html>
+<div id="footer" class="footer"  style="margin-top: 60px;">
+	<!--
+	-->
+	
+	<ul>
+	
+	      <li>
+			<a href="searchproducts.html"><button type="button"><span class="glyphicon glyphicon-check"></span>
+	<h6 class="calendr">Subscription</h6></button></a>
+		</li>
+		<li>
+			<a href="clnder.html"><button type="button"><span class="glyphicon glyphicon-calendar"></span>
+	<h6 class="calendr">Calander</h6></button></a>
+		</li>
+		
+		<li class="active">
+			<button type="button"><span class="glyphicon glyphicon-credit-card"></span>
+	<h6 class="calendr">Wallet</h6></button>
+		</li>
+	</ul>
+	
+</div>
+
+
+
+
+	
+	  
+	
+	</body></html>
 
 <script>
 
-$(document).ready(function () { 
-
-
-url=document.URL;
-
-var order=url.split("=")[1];
-var type=url.split("%")[1];
-
-
-               $.ajax({ 
+$.ajax({
+    url: 'http://codegente.com/aapp/session.php',
+    type: 'POST',
+    success: function(result) {
+        if (result == 'success'){   
+     
+          url=document.URL;
+      
+                               
+       $.ajax({ 
 			type:"POST",   
-			url: "http://codegente.com/aapp/walletjs.php?orderid="+order+"&type="+type,
+			url: "http://codegente.com/aapp/vacationlistjs.php",
 			data:"", 
 			success: function(data)
-			{   
-                             
-                              
+			{     
+				   var dd=data;
+                              $("#view").append(dd);
+				
+				                                    
+                                                  
+	
 				}
-
-                             
 			});
 
-   window.setTimeout(function(){
-
-        
-        window.location.href = "index.html";
-
-    }, 3000);
+           
+      
+  }else{
+           //  window.location="login.html";
+        }
+    }
 });
-
+ 
 
 </script>
 
