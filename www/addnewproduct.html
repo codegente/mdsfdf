@@ -306,7 +306,8 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $("#add").click(function(){
+        
+        $("#add").click(function(){ 
             var favorite = [];
             $.each($("input[name='days']:checked"), function(){            
                 favorite.push($(this).val());
